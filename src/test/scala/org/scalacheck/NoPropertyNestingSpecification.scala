@@ -20,7 +20,6 @@ object NoPropertyNestingSpecification extends Properties("Properties.no nesting"
       }
     }
 
-    p.freeze() // don't have a good way of testing how sbt does this
     val results = for ((name, prop) <- p.properties) yield prop(Gen.Parameters.default)
     results match {
       case collection.Seq(res) => res.status match {
